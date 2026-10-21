@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hospitalised road crash injuries in Australia, 2011–2021</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/visualisation.css">
+</head>
+<body>
+  <header class="page-header">
+    <div class="header-inner">
+      <h1>Hospitalised Road Crash Injuries in Australia</h1>
+    </div>
+  </header>
+
+  <main class="content-container">
+    <section class="intro-section">
+      <h2>Road crash hospitalisations are rising, and cyclists are leading the climb</h2>
+      <p class="subtitle">Every year about 40,000 people in Australia are admitted to hospital after a road crash. Deaths get the headlines. This story looks at the injuries that don’t, using national hospital data from 2011 to 2021.</p>
+    </section>
+
+    <section aria-labelledby="h-trend">
+      <h2 id="h-trend">Admissions grew 16% in ten years, then 2020 broke the pattern</h2>
+      <p>Hospitalised injuries went from 34,033 in 2011 to 39,505 in 2021. They peaked just before COVID-19 lockdowns, dipped in 2020, then bounced back. Hover or tab to a dot for the exact count.</p>
+      <div id="trend" class="responsive-svg-container"></div>
+      <p class="note">Grey areas mark breaks in the series. Victoria (2012) and New South Wales (2017) changed how emergency-only cases are counted, so those years aren’t strictly comparable.</p>
+    </section>
+
+    <section aria-labelledby="h-users">
+      <h2 id="h-users">Cyclist injuries rose by half. Pedestrian injuries fell.</h2>
+      <p>To compare road users of very different sizes, each line shows change since 2011 (2011 = 100). Cyclists reached 151. Pedestrians dropped to 85. Hover a year to see real counts.</p>
+      <div id="road-users" class="responsive-svg-container"></div>
+      <p class="note">Car occupants combine drivers, passengers and unknown position. “Other” combines bus, heavy transport, pick-up/van and unknown road users. These are counts of injuries, not risk: the data has no measure of how much people ride, walk or drive.</p>
+    </section>
+
+    <section aria-labelledby="h-states">
+      <h2 id="h-states">Raw counts hide where the risk is highest</h2>
+      <p>New South Wales and Victoria have the most hospitalisations because they have the most people. Switch to a rate per 100,000 people and the Northern Territory stands out.</p>
+      <div id="filters_states" role="group" aria-label="Choose measure"></div>
+      <div id="states" class="responsive-svg-container"></div>
+      <p class="note">2021 data. Rates use Australian Bureau of Statistics (ABS) 2021 census data from Wikipedia as the official government website (www.abs.gov.au) is undergoing maintenance. Small jurisdictions such as the NT have small counts, so rates move a lot from year to year. NSW counts fall from 2017 after a change in how emergency-only cases are counted, so its rate is probably understated.</p>
+    </section>
+
+    <p id="error" class="error" role="alert" hidden></p>
+
+    <footer class="data-footer">
+      <h3>Data source</h3>
+      <p>
+        <a href="https://www.bitre.gov.au/publications/ongoing/hospitalised-injury" target="_blank" rel="noopener noreferrer">
+          BITRE Hospitalised injury data (September 2023)
+        </a>
+      </p>
+      <p>Sourced from the Bureau of Infrastructure and Transport Research Economics (BITRE).</p>
+      <p class="copyright">Group 10 (Elijah and Samuel).</p>
+    </footer>
+  </main>
+
+  <div id="tooltip" role="status" hidden></div>
+
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="js/shared-constants.js"></script>
+  <script src="js/trend.js"></script>
+  <script src="js/road-users.js"></script>
+  <script src="js/states.js"></script>
+  <script src="js/interactions.js"></script>
+  <script src="js/load-data.js"></script>
+</body>
+</html>
