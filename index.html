@@ -3,67 +3,196 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hospitalised road crash injuries in Australia, 2011–2021</title>
-  <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/visualisation.css">
+  <title>RoadWatch Australia – Hospitalised Road Crash Injuries</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/dashboard.css">
 </head>
 <body>
-  <header class="page-header">
-    <div class="header-inner">
-      <h1>Hospitalised Road Crash Injuries in Australia</h1>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M4 20 10 4h4l6 16" /><path d="M12 7v2M12 12v2M12 17v2" /></svg>
+      </div>
+      <div>
+        <div class="brand-name">RoadWatch Australia <span class="chip">BITRE</span></div>
+        <div class="brand-sub">Hospitalised Injury Surveillance</div>
+      </div>
     </div>
+    <nav class="segmented" aria-label="Dashboard sections">
+      <a href="#overview" class="active">National Overview</a>
+      <a href="#card-states">State &amp; Territory</a>
+      <a href="#card-users">Road User Types</a>
+      <a href="#card-trend">Trend</a>
+      <a href="#sources">Data</a>
+    </nav>
   </header>
 
-  <main class="content-container">
-    <section class="intro-section">
-      <h2>Road crash hospitalisations are rising, and cyclists are leading the climb</h2>
-      <p class="subtitle">Every year about 40,000 people in Australia are admitted to hospital after a road crash. Deaths get the headlines. This story looks at the injuries that don’t, using national hospital data from 2011 to 2021.</p>
+  <main class="shell" id="overview">
+    <section class="hero">
+      <div>
+        <h1>Hospitalised Road Crash Injuries</h1>
+        <p class="hero-sub"><span class="dot-indigo"></span>National reporting period: <b id="hero-year">2021</b> calendar year · BITRE hospitalised injury data</p>
+      </div>
+      <a class="btn-primary" href="#card-trend">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18 10 12l4 4 6-8" /></svg>
+        View 2011–2021 trend
+      </a>
     </section>
 
-    <section aria-labelledby="h-trend">
-      <h2 id="h-trend">Admissions grew 16% in ten years, then 2020 broke the pattern</h2>
-      <p>Hospitalised injuries went from 34,033 in 2011 to 39,505 in 2021. They peaked just before COVID-19 lockdowns, dipped in 2020, then bounced back. Hover or tab to a dot for the exact count.</p>
-      <div id="trend" class="responsive-svg-container"></div>
-      <p class="note">Grey areas mark breaks in the series. Victoria (2012) and New South Wales (2017) changed how emergency-only cases are counted, so those years aren’t strictly comparable.</p>
+    <section class="toolbar" aria-label="Filters">
+      <label class="pill select-pill">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2" /><path d="M4 10h16M9 3v4M15 3v4" /></svg>
+        <span class="sr-only">Reporting year</span>
+        <select id="year-select"></select>
+      </label>
+      <a class="pill" href="data/national_year.csv" download>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14" /></svg>
+        Export dataset
+      </a>
+      <span class="chip chip-status"><span class="dot-indigo"></span>Series breaks: Vic 2012 · NSW 2017</span>
     </section>
 
-    <section aria-labelledby="h-users">
-      <h2 id="h-users">Cyclist injuries rose by half. Pedestrian injuries fell.</h2>
-      <p>To compare road users of very different sizes, each line shows change since 2011 (2011 = 100). Cyclists reached 151. Pedestrians dropped to 85. Hover a year to see real counts.</p>
-      <div id="road-users" class="responsive-svg-container"></div>
-      <p class="note">Car occupants combine drivers, passengers and unknown position. “Other” combines bus, heavy transport, pick-up/van and unknown road users. These are counts of injuries, not risk: the data has no measure of how much people ride, walk or drive.</p>
-    </section>
+    <div class="grid">
+      <!-- Hospital surveillance -->
+      <article class="card card-surveillance" id="card-surveillance">
+        <header class="card-head">
+          <h2>Hospital Surveillance</h2>
+          <span class="pill pill-sm" id="surv-year-pill">2021</span>
+        </header>
 
-    <section aria-labelledby="h-states">
-      <h2 id="h-states">Raw counts hide where the risk is highest</h2>
-      <p>New South Wales and Victoria have the most hospitalisations because they have the most people. Switch to a rate per 100,000 people and the Northern Territory stands out.</p>
-      <div id="filters_states" role="group" aria-label="Choose measure"></div>
-      <div id="states" class="responsive-svg-container"></div>
-      <p class="note">2021 data. Rates use Australian Bureau of Statistics (ABS) 2021 census data from Wikipedia as the official government website (www.abs.gov.au) is undergoing maintenance. Small jurisdictions such as the NT have small counts, so rates move a lot from year to year. NSW counts fall from 2017 after a change in how emergency-only cases are counted, so its rate is probably understated.</p>
-    </section>
+        <div class="record">
+          <div class="record-strip">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" /><path d="M12 8v8M8 12h8" /></svg>
+            <div>
+              <div class="record-small">BITRE</div>
+              <div class="record-year" id="record-year">2021</div>
+            </div>
+          </div>
+          <div class="record-body">
+            <div class="record-title">NATIONAL RECORD</div>
+            <div class="record-label">Hospitalised injuries</div>
+            <div class="record-value" id="kpi-total">–</div>
+            <div class="record-foot">
+              <span id="kpi-since">–</span>
+              <span class="accent" id="kpi-yoy">–</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="row-highlight">
+          <span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18V8M3 14h18v4M7 11a2 2 0 1 0 0-.01M11 11h8a2 2 0 0 1 2 2v1" /></svg>
+            Total bed days
+          </span>
+          <b id="kpi-beddays">–</b>
+        </div>
+
+        <dl class="stat-list">
+          <div><dt>Average length of stay</dt><dd id="kpi-alos">–</dd></div>
+          <div><dt>Died in hospital</dt><dd id="kpi-died">–</dd></div>
+          <div><dt>Peak year (2011–2021)</dt><dd id="kpi-peak">–</dd></div>
+          <div><dt>Rank among 11 years</dt><dd id="kpi-rank">–</dd></div>
+        </dl>
+        <p class="fine">Average stay = bed days ÷ hospitalisations. Deaths in hospital for recent years are incomplete in the source data.</p>
+      </article>
+
+      <!-- Road users -->
+      <article class="card card-users" id="card-users">
+        <header class="card-head">
+          <h2>Road User Category</h2>
+          <a class="link" href="#card-trend">See trend <span aria-hidden="true">›</span></a>
+        </header>
+        <div class="kpi-row">
+          <span class="kpi" id="users-kpi">–</span>
+          <span class="kpi-note" id="users-kpi-note">–</span>
+        </div>
+        <div id="chart-users" class="chart"></div>
+        <footer class="card-foot">
+          <span><span class="dot-coral"></span>Badge: change vs previous year</span>
+          <span>“Other” = bus, heavy vehicle, van &amp; unknown</span>
+        </footer>
+      </article>
+
+      <!-- State share gauge -->
+      <article class="card card-gauge" id="card-share">
+        <header class="card-head">
+          <h2>Share by Jurisdiction</h2>
+          <span class="help" tabindex="0" aria-label="Share of national hospitalisations from the three largest jurisdictions">?</span>
+        </header>
+        <div id="chart-gauge" class="chart"></div>
+        <ul class="legend" id="gauge-legend"></ul>
+      </article>
+
+      <!-- Annual trend -->
+      <article class="card card-trend" id="card-trend">
+        <header class="card-head">
+          <h2>Annual Admissions</h2>
+          <span class="pill pill-sm">2011–2021</span>
+        </header>
+        <div class="kpi-row">
+          <span class="kpi" id="trend-kpi">–</span>
+          <span class="badge" id="trend-badge">–</span>
+        </div>
+        <div id="chart-trend" class="chart"></div>
+        <p class="fine">Click a year on the chart to update the whole dashboard.</p>
+      </article>
+
+      <!-- Cyclist alert -->
+      <article class="card card-accent" id="card-cyclist">
+        <header class="card-head">
+          <h2>Cyclist Injury Alert</h2>
+          <span class="pill-glass">Fastest growing</span>
+        </header>
+        <div class="kpi-row">
+          <span class="kpi" id="cyc-kpi">–</span>
+          <span class="kpi-note">injuries</span>
+        </div>
+        <p class="accent-note" id="cyc-note">–</p>
+        <div id="chart-cyclist" class="chart"></div>
+        <footer class="card-foot">
+          <span>Pedal cyclist hospitalisations, 2011–2021</span>
+          <a href="#card-users">Compare users ›</a>
+        </footer>
+      </article>
+
+      <!-- States -->
+      <article class="card card-states" id="card-states">
+        <header class="card-head">
+          <div>
+            <h2>State &amp; Territory</h2>
+            <p class="card-sub" id="states-sub">–</p>
+          </div>
+          <div class="segmented segmented-sm" role="group" aria-label="Choose measure" id="metric-toggle">
+            <button type="button" data-metric="count" class="active" aria-pressed="true">Cases</button>
+            <button type="button" data-metric="rate" aria-pressed="false">Per 100,000 people</button>
+          </div>
+        </header>
+        <div id="chart-states" class="chart"></div>
+        <p class="fine">Rates use ABS 2021 census populations for every year, so rates for earlier years are approximate. Small jurisdictions such as the NT move a lot year to year.</p>
+      </article>
+    </div>
 
     <p id="error" class="error" role="alert" hidden></p>
 
-    <footer class="data-footer">
-      <h3>Data source</h3>
-      <p>
-        <a href="https://www.bitre.gov.au/publications/ongoing/hospitalised-injury" target="_blank" rel="noopener noreferrer">
-          BITRE Hospitalised injury data (September 2023)
-        </a>
-      </p>
-      <p>Sourced from the Bureau of Infrastructure and Transport Research Economics (BITRE).</p>
-      <p class="copyright">Group 10 (Elijah and Samuel).</p>
-    </footer>
+    <section class="verify" id="sources">
+      <span>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z" /><path d="m9 12 2 2 4-4" /></svg>
+        Source: Bureau of Infrastructure and Transport Research Economics (BITRE), Hospitalised injury data, September 2023.
+      </span>
+      <a href="https://www.bitre.gov.au/publications/ongoing/hospitalised-injury" target="_blank" rel="noopener noreferrer">Methodology notes</a>
+    </section>
   </main>
+
+  <footer class="site-footer">
+    <span>COS30045 · Group 10 (Elijah and Samuel)</span>
+    <span>Data: BITRE · Population: ABS 2021 Census</span>
+  </footer>
 
   <div id="tooltip" role="status" hidden></div>
 
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="js/shared-constants.js"></script>
-  <script src="js/trend.js"></script>
-  <script src="js/road-users.js"></script>
-  <script src="js/states.js"></script>
-  <script src="js/interactions.js"></script>
-  <script src="js/load-data.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+  <script src="js/dashboard.js"></script>
 </body>
 </html>
