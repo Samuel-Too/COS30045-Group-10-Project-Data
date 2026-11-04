@@ -1,0 +1,49 @@
+/* Additions for the linked dashboard: layout spans, filter bar, scope badges and chart parts. */
+.span-3 { grid-column: span 3; } .span-4 { grid-column: span 4; } .span-5 { grid-column: span 5; }
+.span-7 { grid-column: span 7; } .span-8 { grid-column: span 8; } .span-12 { grid-column: 1 / -1; }
+
+.zone {
+  margin: 2.5rem 0 1rem; display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;
+  font: 700 0.85rem/1.2 var(--body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2);
+}
+.scope {
+  font: 600 0.72rem/1.3 var(--body); color: var(--ink-2); background: var(--muted-surface);
+  padding: 0.4rem 0.7rem; border-radius: 999px; max-width: 18rem; text-transform: none; letter-spacing: 0;
+}
+.filterbar {
+  display: flex; align-items: center; gap: 0.6rem; flex-wrap: wrap; margin-top: 1.75rem; padding: 0.7rem 1rem;
+  background: var(--card); border-radius: 999px; box-shadow: var(--shadow-1); position: sticky; top: 5rem; z-index: 4;
+}
+.chips { display: contents; }
+.chip-filter { background: var(--indigo-soft); color: #2f2ebe; font-size: 0.78rem; padding: 0.4rem 0.4rem 0.4rem 0.75rem; }
+.chip-filter button { border: 0; background: transparent; color: inherit; font: 700 1rem/1 var(--body); cursor: pointer; padding: 0 0.35rem; }
+#reset { margin-left: auto; cursor: pointer; }
+.kpi-card .card-sub { margin: 0 0 0.5rem; font-weight: 600; }
+.card-head .segmented { flex: none; }
+.legend { justify-content: flex-start; padding-top: 0.5rem; margin-top: 0; }
+.note { margin: 0.75rem 0 0; font-size: 0.8rem; color: var(--ink-3); min-height: 1.2em; }
+.card .chart { margin-top: 0.25rem; }
+
+.series-break { fill: #eceef1; }
+.range-band { fill: var(--indigo-soft); opacity: 0.6; }
+.trend-line { fill: none; stroke: var(--ink); stroke-width: 3; stroke-linejoin: round; }
+.all-line { fill: none; stroke: var(--ink-3); stroke-width: 2; stroke-dasharray: 4 4; }
+.baseline { stroke: var(--ink-3); stroke-dasharray: 4 4; }
+.spark { fill: none; stroke-width: 2.5; stroke-linecap: round; }
+.series-label { font: 700 13px var(--body); }
+.brush .selection { fill: var(--indigo); fill-opacity: 0.12; stroke: var(--indigo); }
+.axis line { stroke: var(--line); stroke-dasharray: 3 4; }
+.dot { cursor: pointer; stroke: #fff; stroke-width: 2; }
+.ru-row, .cell, .tile, .stack-seg { cursor: pointer; }
+.tile-name { font: 700 15px var(--body); }
+.tile-value { font: 600 12px var(--body); }
+.stack-pct { font: 700 12px var(--body); fill: #fff; pointer-events: none; }
+.state-label { font-size: 13px; }
+[tabindex]:focus-visible { outline: 3px solid #f2b705; outline-offset: 2px; }
+.dot:focus-visible, .stack-seg:focus-visible { outline: none; stroke: #f2b705; stroke-width: 3; }
+
+@media (max-width: 1279px) { .span-3 { grid-column: span 6; } .span-4, .span-5, .span-7, .span-8 { grid-column: 1 / -1; } }
+@media (max-width: 860px) {
+  .filterbar { position: static; border-radius: 20px; }
+  .grid > .card { grid-column: 1 / -1; }
+}

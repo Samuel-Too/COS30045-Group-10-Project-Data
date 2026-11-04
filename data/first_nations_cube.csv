@@ -1,0 +1,419 @@
+"year","status","category","dim","cases"
+2011,"First Nations","0-7","age",92
+2011,"First Nations","17-25","age",335
+2011,"First Nations","26-39","age",286
+2011,"First Nations","40-64","age",226
+2011,"First Nations","65+","age",24
+2011,"First Nations","8-16","age",204
+2011,"First Nations","Car occupant","road_user",617
+2011,"First Nations","Car, pick-up truck or van","crash_type",391
+2011,"First Nations","Fixed or stationary object","crash_type",192
+2011,"First Nations","Major Cities","remoteness",368
+2011,"First Nations","Motorcyclist","road_user",187
+2011,"First Nations","Non-collision transport accident","crash_type",362
+2011,"First Nations","Other","crash_type",222
+2011,"First Nations","Pedal cyclist","road_user",121
+2011,"First Nations","Pedestrian","road_user",180
+2011,"First Nations","Regional","remoteness",455
+2011,"First Nations","Remote","remoteness",330
+2011,"Non-Indigenous","0-7","age",614
+2011,"Non-Indigenous","17-25","age",7546
+2011,"Non-Indigenous","26-39","age",7659
+2011,"Non-Indigenous","40-64","age",10166
+2011,"Non-Indigenous","65+","age",3735
+2011,"Non-Indigenous","8-16","age",2277
+2011,"Non-Indigenous","Car occupant","road_user",15597
+2011,"Non-Indigenous","Car, pick-up truck or van","crash_type",13293
+2011,"Non-Indigenous","Fixed or stationary object","crash_type",4601
+2011,"Non-Indigenous","Major Cities","remoteness",20985
+2011,"Non-Indigenous","Motorcyclist","road_user",7185
+2011,"Non-Indigenous","Non-collision transport accident","crash_type",8059
+2011,"Non-Indigenous","Other","crash_type",6044
+2011,"Non-Indigenous","Pedal cyclist","road_user",5174
+2011,"Non-Indigenous","Pedestrian","road_user",2522
+2011,"Non-Indigenous","Regional","remoteness",9717
+2011,"Non-Indigenous","Remote","remoteness",789
+2012,"First Nations","0-7","age",81
+2012,"First Nations","17-25","age",385
+2012,"First Nations","26-39","age",372
+2012,"First Nations","40-64","age",315
+2012,"First Nations","65+","age",22
+2012,"First Nations","8-16","age",229
+2012,"First Nations","Car occupant","road_user",758
+2012,"First Nations","Car, pick-up truck or van","crash_type",476
+2012,"First Nations","Fixed or stationary object","crash_type",226
+2012,"First Nations","Major Cities","remoteness",429
+2012,"First Nations","Motorcyclist","road_user",218
+2012,"First Nations","Non-collision transport accident","crash_type",466
+2012,"First Nations","Other","crash_type",236
+2012,"First Nations","Pedal cyclist","road_user",152
+2012,"First Nations","Pedestrian","road_user",219
+2012,"First Nations","Regional","remoteness",545
+2012,"First Nations","Remote","remoteness",426
+2012,"Non-Indigenous","0-7","age",653
+2012,"Non-Indigenous","17-25","age",7459
+2012,"Non-Indigenous","26-39","age",7670
+2012,"Non-Indigenous","40-64","age",10081
+2012,"Non-Indigenous","65+","age",3862
+2012,"Non-Indigenous","8-16","age",2065
+2012,"Non-Indigenous","Car occupant","road_user",15250
+2012,"Non-Indigenous","Car, pick-up truck or van","crash_type",13010
+2012,"Non-Indigenous","Fixed or stationary object","crash_type",4549
+2012,"Non-Indigenous","Major Cities","remoteness",20858
+2012,"Non-Indigenous","Motorcyclist","road_user",7348
+2012,"Non-Indigenous","Non-collision transport accident","crash_type",8130
+2012,"Non-Indigenous","Other","crash_type",6101
+2012,"Non-Indigenous","Pedal cyclist","road_user",5379
+2012,"Non-Indigenous","Pedestrian","road_user",2390
+2012,"Non-Indigenous","Regional","remoteness",9536
+2012,"Non-Indigenous","Remote","remoteness",802
+2013,"First Nations","0-7","age",78
+2013,"First Nations","17-25","age",422
+2013,"First Nations","26-39","age",366
+2013,"First Nations","40-64","age",279
+2013,"First Nations","65+","age",27
+2013,"First Nations","8-16","age",242
+2013,"First Nations","Car occupant","road_user",755
+2013,"First Nations","Car, pick-up truck or van","crash_type",430
+2013,"First Nations","Fixed or stationary object","crash_type",255
+2013,"First Nations","Major Cities","remoteness",446
+2013,"First Nations","Motorcyclist","road_user",267
+2013,"First Nations","Non-collision transport accident","crash_type",503
+2013,"First Nations","Other","crash_type",226
+2013,"First Nations","Pedal cyclist","road_user",173
+2013,"First Nations","Pedestrian","road_user",166
+2013,"First Nations","Regional","remoteness",540
+2013,"First Nations","Remote","remoteness",420
+2013,"Non-Indigenous","0-7","age",647
+2013,"Non-Indigenous","17-25","age",7251
+2013,"Non-Indigenous","26-39","age",7929
+2013,"Non-Indigenous","40-64","age",10820
+2013,"Non-Indigenous","65+","age",4081
+2013,"Non-Indigenous","8-16","age",2111
+2013,"Non-Indigenous","Car occupant","road_user",15439
+2013,"Non-Indigenous","Car, pick-up truck or van","crash_type",13276
+2013,"Non-Indigenous","Fixed or stationary object","crash_type",4584
+2013,"Non-Indigenous","Major Cities","remoteness",22224
+2013,"Non-Indigenous","Motorcyclist","road_user",7617
+2013,"Non-Indigenous","Non-collision transport accident","crash_type",8729
+2013,"Non-Indigenous","Other","crash_type",6250
+2013,"Non-Indigenous","Pedal cyclist","road_user",5985
+2013,"Non-Indigenous","Pedestrian","road_user",2409
+2013,"Non-Indigenous","Regional","remoteness",9218
+2013,"Non-Indigenous","Remote","remoteness",765
+2014,"First Nations","0-7","age",
+2014,"First Nations","17-25","age",422
+2014,"First Nations","26-39","age",388
+2014,"First Nations","40-64","age",314
+2014,"First Nations","65+","age",
+2014,"First Nations","8-16","age",220
+2014,"First Nations","Car occupant","road_user",759
+2014,"First Nations","Car, pick-up truck or van","crash_type",461
+2014,"First Nations","Fixed or stationary object","crash_type",271
+2014,"First Nations","Major Cities","remoteness",486
+2014,"First Nations","Motorcyclist","road_user",254
+2014,"First Nations","Non-collision transport accident","crash_type",479
+2014,"First Nations","Other","crash_type",245
+2014,"First Nations","Pedal cyclist","road_user",177
+2014,"First Nations","Pedestrian","road_user",196
+2014,"First Nations","Regional","remoteness",565
+2014,"First Nations","Remote","remoteness",392
+2014,"Non-Indigenous","0-7","age",
+2014,"Non-Indigenous","17-25","age",7150
+2014,"Non-Indigenous","26-39","age",8107
+2014,"Non-Indigenous","40-64","age",11105
+2014,"Non-Indigenous","65+","age",
+2014,"Non-Indigenous","8-16","age",1980
+2014,"Non-Indigenous","Car occupant","road_user",15363
+2014,"Non-Indigenous","Car, pick-up truck or van","crash_type",13543
+2014,"Non-Indigenous","Fixed or stationary object","crash_type",4668
+2014,"Non-Indigenous","Major Cities","remoteness",22572
+2014,"Non-Indigenous","Motorcyclist","road_user",7919
+2014,"Non-Indigenous","Non-collision transport accident","crash_type",8957
+2014,"Non-Indigenous","Other","crash_type",6193
+2014,"Non-Indigenous","Pedal cyclist","road_user",6354
+2014,"Non-Indigenous","Pedestrian","road_user",2316
+2014,"Non-Indigenous","Regional","remoteness",9358
+2014,"Non-Indigenous","Remote","remoteness",737
+2015,"First Nations","0-7","age",79
+2015,"First Nations","17-25","age",420
+2015,"First Nations","26-39","age",449
+2015,"First Nations","40-64","age",372
+2015,"First Nations","65+","age",41
+2015,"First Nations","8-16","age",239
+2015,"First Nations","Car occupant","road_user",883
+2015,"First Nations","Car, pick-up truck or van","crash_type",497
+2015,"First Nations","Fixed or stationary object","crash_type",275
+2015,"First Nations","Major Cities","remoteness",508
+2015,"First Nations","Motorcyclist","road_user",273
+2015,"First Nations","Non-collision transport accident","crash_type",573
+2015,"First Nations","Other","crash_type",255
+2015,"First Nations","Pedal cyclist","road_user",177
+2015,"First Nations","Pedestrian","road_user",206
+2015,"First Nations","Regional","remoteness",613
+2015,"First Nations","Remote","remoteness",461
+2015,"Non-Indigenous","0-7","age",654
+2015,"Non-Indigenous","17-25","age",7316
+2015,"Non-Indigenous","26-39","age",8369
+2015,"Non-Indigenous","40-64","age",11587
+2015,"Non-Indigenous","65+","age",4671
+2015,"Non-Indigenous","8-16","age",2176
+2015,"Non-Indigenous","Car occupant","road_user",16692
+2015,"Non-Indigenous","Car, pick-up truck or van","crash_type",14538
+2015,"Non-Indigenous","Fixed or stationary object","crash_type",4920
+2015,"Non-Indigenous","Major Cities","remoteness",23597
+2015,"Non-Indigenous","Motorcyclist","road_user",7855
+2015,"Non-Indigenous","Non-collision transport accident","crash_type",9125
+2015,"Non-Indigenous","Other","crash_type",6190
+2015,"Non-Indigenous","Pedal cyclist","road_user",6435
+2015,"Non-Indigenous","Pedestrian","road_user",2378
+2015,"Non-Indigenous","Regional","remoteness",9684
+2015,"Non-Indigenous","Remote","remoteness",694
+2016,"First Nations","0-7","age",89
+2016,"First Nations","17-25","age",501
+2016,"First Nations","26-39","age",422
+2016,"First Nations","40-64","age",374
+2016,"First Nations","65+","age",29
+2016,"First Nations","8-16","age",254
+2016,"First Nations","Car occupant","road_user",928
+2016,"First Nations","Car, pick-up truck or van","crash_type",540
+2016,"First Nations","Fixed or stationary object","crash_type",304
+2016,"First Nations","Major Cities","remoteness",551
+2016,"First Nations","Motorcyclist","road_user",296
+2016,"First Nations","Non-collision transport accident","crash_type",554
+2016,"First Nations","Other","crash_type",271
+2016,"First Nations","Pedal cyclist","road_user",190
+2016,"First Nations","Pedestrian","road_user",190
+2016,"First Nations","Regional","remoteness",648
+2016,"First Nations","Remote","remoteness",454
+2016,"Non-Indigenous","0-7","age",634
+2016,"Non-Indigenous","17-25","age",7839
+2016,"Non-Indigenous","26-39","age",8897
+2016,"Non-Indigenous","40-64","age",12157
+2016,"Non-Indigenous","65+","age",4957
+2016,"Non-Indigenous","8-16","age",2200
+2016,"Non-Indigenous","Car occupant","road_user",17872
+2016,"Non-Indigenous","Car, pick-up truck or van","crash_type",15759
+2016,"Non-Indigenous","Fixed or stationary object","crash_type",5212
+2016,"Non-Indigenous","Major Cities","remoteness",25390
+2016,"Non-Indigenous","Motorcyclist","road_user",8111
+2016,"Non-Indigenous","Non-collision transport accident","crash_type",9204
+2016,"Non-Indigenous","Other","crash_type",6509
+2016,"Non-Indigenous","Pedal cyclist","road_user",6613
+2016,"Non-Indigenous","Pedestrian","road_user",2514
+2016,"Non-Indigenous","Regional","remoteness",9846
+2016,"Non-Indigenous","Remote","remoteness",678
+2017,"First Nations","0-7","age",81
+2017,"First Nations","17-25","age",506
+2017,"First Nations","26-39","age",435
+2017,"First Nations","40-64","age",418
+2017,"First Nations","65+","age",42
+2017,"First Nations","8-16","age",251
+2017,"First Nations","Car occupant","road_user",938
+2017,"First Nations","Car, pick-up truck or van","crash_type",595
+2017,"First Nations","Fixed or stationary object","crash_type",303
+2017,"First Nations","Major Cities","remoteness",617
+2017,"First Nations","Motorcyclist","road_user",319
+2017,"First Nations","Non-collision transport accident","crash_type",567
+2017,"First Nations","Other","crash_type",268
+2017,"First Nations","Pedal cyclist","road_user",201
+2017,"First Nations","Pedestrian","road_user",209
+2017,"First Nations","Regional","remoteness",704
+2017,"First Nations","Remote","remoteness",393
+2017,"Non-Indigenous","0-7","age",642
+2017,"Non-Indigenous","17-25","age",7856
+2017,"Non-Indigenous","26-39","age",8926
+2017,"Non-Indigenous","40-64","age",12329
+2017,"Non-Indigenous","65+","age",5055
+2017,"Non-Indigenous","8-16","age",2222
+2017,"Non-Indigenous","Car occupant","road_user",17901
+2017,"Non-Indigenous","Car, pick-up truck or van","crash_type",16144
+2017,"Non-Indigenous","Fixed or stationary object","crash_type",5052
+2017,"Non-Indigenous","Major Cities","remoteness",25288
+2017,"Non-Indigenous","Motorcyclist","road_user",8318
+2017,"Non-Indigenous","Non-collision transport accident","crash_type",9378
+2017,"Non-Indigenous","Other","crash_type",6456
+2017,"Non-Indigenous","Pedal cyclist","road_user",6782
+2017,"Non-Indigenous","Pedestrian","road_user",2465
+2017,"Non-Indigenous","Regional","remoteness",10163
+2017,"Non-Indigenous","Remote","remoteness",653
+2018,"First Nations","0-7","age",70
+2018,"First Nations","17-25","age",607
+2018,"First Nations","26-39","age",542
+2018,"First Nations","40-64","age",411
+2018,"First Nations","65+","age",47
+2018,"First Nations","8-16","age",253
+2018,"First Nations","Car occupant","road_user",1113
+2018,"First Nations","Car, pick-up truck or van","crash_type",608
+2018,"First Nations","Fixed or stationary object","crash_type",345
+2018,"First Nations","Major Cities","remoteness",642
+2018,"First Nations","Motorcyclist","road_user",333
+2018,"First Nations","Non-collision transport accident","crash_type",711
+2018,"First Nations","Other","crash_type",266
+2018,"First Nations","Pedal cyclist","road_user",199
+2018,"First Nations","Pedestrian","road_user",209
+2018,"First Nations","Regional","remoteness",797
+2018,"First Nations","Remote","remoteness",466
+2018,"Non-Indigenous","0-7","age",646
+2018,"Non-Indigenous","17-25","age",7622
+2018,"Non-Indigenous","26-39","age",9100
+2018,"Non-Indigenous","40-64","age",12381
+2018,"Non-Indigenous","65+","age",5305
+2018,"Non-Indigenous","8-16","age",2144
+2018,"Non-Indigenous","Car occupant","road_user",18337
+2018,"Non-Indigenous","Car, pick-up truck or van","crash_type",16018
+2018,"Non-Indigenous","Fixed or stationary object","crash_type",5149
+2018,"Non-Indigenous","Major Cities","remoteness",25236
+2018,"Non-Indigenous","Motorcyclist","road_user",8200
+2018,"Non-Indigenous","Non-collision transport accident","crash_type",9538
+2018,"Non-Indigenous","Other","crash_type",6493
+2018,"Non-Indigenous","Pedal cyclist","road_user",6676
+2018,"Non-Indigenous","Pedestrian","road_user",2412
+2018,"Non-Indigenous","Regional","remoteness",10278
+2018,"Non-Indigenous","Remote","remoteness",720
+2019,"First Nations","0-7","age",78
+2019,"First Nations","17-25","age",521
+2019,"First Nations","26-39","age",539
+2019,"First Nations","40-64","age",411
+2019,"First Nations","65+","age",59
+2019,"First Nations","8-16","age",248
+2019,"First Nations","Car occupant","road_user",996
+2019,"First Nations","Car, pick-up truck or van","crash_type",628
+2019,"First Nations","Fixed or stationary object","crash_type",338
+2019,"First Nations","Major Cities","remoteness",708
+2019,"First Nations","Motorcyclist","road_user",353
+2019,"First Nations","Non-collision transport accident","crash_type",602
+2019,"First Nations","Other","crash_type",288
+2019,"First Nations","Pedal cyclist","road_user",240
+2019,"First Nations","Pedestrian","road_user",211
+2019,"First Nations","Regional","remoteness",669
+2019,"First Nations","Remote","remoteness",447
+2019,"Non-Indigenous","0-7","age",616
+2019,"Non-Indigenous","17-25","age",7486
+2019,"Non-Indigenous","26-39","age",8968
+2019,"Non-Indigenous","40-64","age",12579
+2019,"Non-Indigenous","65+","age",5614
+2019,"Non-Indigenous","8-16","age",2219
+2019,"Non-Indigenous","Car occupant","road_user",18006
+2019,"Non-Indigenous","Car, pick-up truck or van","crash_type",16283
+2019,"Non-Indigenous","Fixed or stationary object","crash_type",5101
+2019,"Non-Indigenous","Major Cities","remoteness",25502
+2019,"Non-Indigenous","Motorcyclist","road_user",8463
+2019,"Non-Indigenous","Non-collision transport accident","crash_type",9330
+2019,"Non-Indigenous","Other","crash_type",6768
+2019,"Non-Indigenous","Pedal cyclist","road_user",6984
+2019,"Non-Indigenous","Pedestrian","road_user",2461
+2019,"Non-Indigenous","Regional","remoteness",10232
+2019,"Non-Indigenous","Remote","remoteness",638
+2020,"First Nations","0-7","age",82
+2020,"First Nations","17-25","age",705
+2020,"First Nations","26-39","age",659
+2020,"First Nations","40-64","age",496
+2020,"First Nations","65+","age",53
+2020,"First Nations","8-16","age",295
+2020,"First Nations","Car occupant","road_user",1208
+2020,"First Nations","Car, pick-up truck or van","crash_type",733
+2020,"First Nations","Fixed or stationary object","crash_type",467
+2020,"First Nations","Major Cities","remoteness",810
+2020,"First Nations","Motorcyclist","road_user",545
+2020,"First Nations","Non-collision transport accident","crash_type",732
+2020,"First Nations","Other","crash_type",358
+2020,"First Nations","Pedal cyclist","road_user",230
+2020,"First Nations","Pedestrian","road_user",223
+2020,"First Nations","Regional","remoteness",946
+2020,"First Nations","Remote","remoteness",504
+2020,"Non-Indigenous","0-7","age",620
+2020,"Non-Indigenous","17-25","age",7183
+2020,"Non-Indigenous","26-39","age",8405
+2020,"Non-Indigenous","40-64","age",11674
+2020,"Non-Indigenous","65+","age",4826
+2020,"Non-Indigenous","8-16","age",2478
+2020,"Non-Indigenous","Car occupant","road_user",15843
+2020,"Non-Indigenous","Car, pick-up truck or van","crash_type",13769
+2020,"Non-Indigenous","Fixed or stationary object","crash_type",5110
+2020,"Non-Indigenous","Major Cities","remoteness",23823
+2020,"Non-Indigenous","Motorcyclist","road_user",8038
+2020,"Non-Indigenous","Non-collision transport accident","crash_type",10047
+2020,"Non-Indigenous","Other","crash_type",6260
+2020,"Non-Indigenous","Pedal cyclist","road_user",8012
+2020,"Non-Indigenous","Pedestrian","road_user",1857
+2020,"Non-Indigenous","Regional","remoteness",9936
+2020,"Non-Indigenous","Remote","remoteness",660
+2021,"First Nations","0-7","age",86
+2021,"First Nations","17-25","age",686
+2021,"First Nations","26-39","age",597
+2021,"First Nations","40-64","age",515
+2021,"First Nations","65+","age",45
+2021,"First Nations","8-16","age",291
+2021,"First Nations","Car occupant","road_user",1158
+2021,"First Nations","Car, pick-up truck or van","crash_type",746
+2021,"First Nations","Fixed or stationary object","crash_type",369
+2021,"First Nations","Major Cities","remoteness",795
+2021,"First Nations","Motorcyclist","road_user",520
+2021,"First Nations","Non-collision transport accident","crash_type",742
+2021,"First Nations","Other","crash_type",363
+2021,"First Nations","Pedal cyclist","road_user",207
+2021,"First Nations","Pedestrian","road_user",235
+2021,"First Nations","Regional","remoteness",885
+2021,"First Nations","Remote","remoteness",503
+2021,"Non-Indigenous","0-7","age",610
+2021,"Non-Indigenous","17-25","age",7225
+2021,"Non-Indigenous","26-39","age",8689
+2021,"Non-Indigenous","40-64","age",12337
+2021,"Non-Indigenous","65+","age",5361
+2021,"Non-Indigenous","8-16","age",2533
+2021,"Non-Indigenous","Car occupant","road_user",17098
+2021,"Non-Indigenous","Car, pick-up truck or van","crash_type",15252
+2021,"Non-Indigenous","Fixed or stationary object","crash_type",5150
+2021,"Non-Indigenous","Major Cities","remoteness",25254
+2021,"Non-Indigenous","Motorcyclist","road_user",8259
+2021,"Non-Indigenous","Non-collision transport accident","crash_type",9866
+2021,"Non-Indigenous","Other","crash_type",6487
+2021,"Non-Indigenous","Pedal cyclist","road_user",7861
+2021,"Non-Indigenous","Pedestrian","road_user",2072
+2021,"Non-Indigenous","Regional","remoteness",10332
+2021,"Non-Indigenous","Remote","remoteness",600
+2011,"First Nations","Other","road_user",62
+2011,"Non-Indigenous","Other","road_user",1519
+2012,"First Nations","Other","road_user",57
+2012,"Non-Indigenous","Other","road_user",1423
+2013,"First Nations","Other","road_user",53
+2013,"Non-Indigenous","Other","road_user",1389
+2014,"First Nations","Other","road_user",70
+2014,"Non-Indigenous","Other","road_user",1409
+2015,"First Nations","Other","road_user",61
+2015,"Non-Indigenous","Other","road_user",1413
+2016,"First Nations","Other","road_user",65
+2016,"Non-Indigenous","Other","road_user",1574
+2017,"First Nations","Other","road_user",66
+2017,"Non-Indigenous","Other","road_user",1564
+2018,"First Nations","Other","road_user",76
+2018,"Non-Indigenous","Other","road_user",1573
+2019,"First Nations","Other","road_user",56
+2019,"Non-Indigenous","Other","road_user",1568
+2020,"First Nations","Other","road_user",84
+2020,"Non-Indigenous","Other","road_user",1436
+2021,"First Nations","Other","road_user",100
+2021,"Non-Indigenous","Other","road_user",1465
+2011,"Non-Indigenous","All","total",31997
+2011,"First Nations","All","total",1167
+2012,"Non-Indigenous","All","total",31790
+2012,"First Nations","All","total",1404
+2013,"Non-Indigenous","All","total",32839
+2013,"First Nations","All","total",1414
+2014,"Non-Indigenous","All","total",33361
+2014,"First Nations","All","total",1456
+2015,"Non-Indigenous","All","total",34773
+2015,"First Nations","All","total",1600
+2016,"Non-Indigenous","All","total",36684
+2016,"First Nations","All","total",1669
+2017,"Non-Indigenous","All","total",37030
+2017,"First Nations","All","total",1733
+2018,"Non-Indigenous","All","total",37198
+2018,"First Nations","All","total",1930
+2019,"Non-Indigenous","All","total",37482
+2019,"First Nations","All","total",1856
+2020,"Non-Indigenous","All","total",35186
+2020,"First Nations","All","total",2290
+2021,"Non-Indigenous","All","total",36755
+2021,"First Nations","All","total",2220
