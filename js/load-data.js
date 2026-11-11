@@ -1,11 +1,11 @@
-/* Loads the three cubes, draws every chart once, then hands control to the filter model.
+/* Loads the data cube and the state boundaries, draws every chart once, then hands control to the filter model.
    GenAI acknowledgement: first draft written with Claude (Anthropic).
    Prompt summary: build a D3 dashboard from the three provided BITRE files with linked charts
    (timeline brush, road user ranking, age heatmap, state tile map and mix, First Nations comparison).
-   Team: replace this note with what you changed and tested. */
+ */
 const blankToNaN = v => v === "" ? NaN : +v;
  
-d3.csv("data/master_cube.csv", d => ({
+Promise.all([d3.csv("data/master_cube.csv", d => ({
   dataset: d.dataset,
   year: +d.year,
   state: d.state,
@@ -18,9 +18,9 @@ d3.csv("data/master_cube.csv", d => ({
   category: d.category,
   cases: blankToNaN(d.cases),
   bedDays: blankToNaN(d.bed_days)
-})).then(rows => {
+})), d3.json("data/australia-states.geojson")]).then(([rows, geo]) => {
   const part = name => rows.filter(d => d.dataset === name);
-  Object.assign(data, { national: part("national"), states: part("state"), fn: part("first_nations") });
+  Object.assign(data, { national: part("national"), states: part("state"), fn: part("first_nations"), geo });
  
   drawTimeline();
   drawUsers();
@@ -30,13 +30,12 @@ d3.csv("data/master_cube.csv", d => ({
   drawFn();
   drawRemote();
  
-  updaters.push(updateKpis, updateTimeline, updateUsers, updateHeat, updateStateMap, updateComp, updateFn, updateRemote);
+  updaters.push(updateKpis, updateTiles, updateTimeline, updateUsers, updateHeat, updateStateMap, updateComp, updateFn, updateRemote);
   d3.select("#reset").on("click", resetFilters);
-  watchSections();
   updateAll();
 }).catch(error => {
-  console.error("Error loading the master CSV:", error);
+  console.error("Error loading the data:", error);
   d3.select("#error")
     .attr("hidden", null)
-    .text("The data could not be loaded. Serve this folder from a web server (not file://) and check data/master_cube.csv.");
+    .text("The data could not be loaded. Serve this folder from a web server (not file://) and check data/master_cube.csv and data/australia-states.geojson.");
 }); 

@@ -1,5 +1,5 @@
 // F1: growth of First Nations and Non-Indigenous cases, indexed to 2011 = 100.
-const fnChart = { w: 640, h: 300, m: { top: 20, right: 130, bottom: 30, left: 48 } };
+const fnChart = { w: 860, h: 520, m: { top: 20, right: 130, bottom: 30, left: 48 } };
 const fnStatus = ["First Nations", "Non-Indigenous"];
 const fnColors = { "First Nations": coral, "Non-Indigenous": grey };
 const fnText = { "First Nations": "#9a3412", "Non-Indigenous": "#374151" };

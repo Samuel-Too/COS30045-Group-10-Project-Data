@@ -1,5 +1,5 @@
 // F2: where First Nations and Non-Indigenous cases live (remoteness). Clicking a segment sets the area filter.
-const remote = { w: 520, rowH: 64, labelW: 118, barW: 390 };
+const remote = { w: 460, rowH: 96, labelW: 118, barW: 336 };
 
 const drawRemote = () => {
   const r = remote;

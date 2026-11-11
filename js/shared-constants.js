@@ -5,7 +5,6 @@ const roadUsers = ["Car occupant", "Motorcyclist", "Pedal cyclist", "Pedestrian"
 const ageBands = ["0-7", "8-16", "17-25", "26-39", "40-64", "65+"];
 const remoteAreas = ["Major Cities", "Regional", "Remote"];
 const stateOrder = ["NSW", "Vic", "Qld", "WA", "SA", "Tas", "ACT", "NT"];
-const tileGrid = { NT: [1, 0], Qld: [2, 0], WA: [0, 1], SA: [1, 1], NSW: [2, 1], Vic: [2, 2], ACT: [3, 2], Tas: [2, 3] };
 const categoryOrder = { road_user: roadUsers, age: ageBands, sex: ["Male", "Female"] };
 const filterLabels = { roadUser: "Road user", age: "Age", sex: "Sex", remoteness: "Area", state: "State" };
 

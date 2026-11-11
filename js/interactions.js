@@ -1,4 +1,4 @@
-// Tooltip, filter chips, reset button and the section highlight in the top bar.
+// Tooltip, filter chips and the reset button.
 const tooltip = d3.select("#tooltip");
 
 const showTooltip = (x, y, html) => {
@@ -35,12 +35,4 @@ const renderChips = () => {
     })
     .select("span")
     .text(d => `${filterLabels[d]}: ${filters[d]}`);
-};
-
-const watchSections = () => {
-  const links = d3.selectAll(".topbar .segmented a");
-  const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-    if (entry.isIntersecting) links.classed("active", function () { return this.getAttribute("href") === `#${entry.target.id}`; });
-  }), { rootMargin: "-40% 0px -55% 0px" });
-  d3.selectAll("main section[id]").each(function () { observer.observe(this); });
 };

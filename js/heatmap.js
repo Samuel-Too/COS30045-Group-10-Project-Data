@@ -1,5 +1,5 @@
 // H1: road user by age band. Cells show each road user's age profile; clicking a cell sets both filters.
-const heat = { w: 640, h: 290, m: { top: 34, left: 112 }, rowH: 46, mode: "share" };
+const heat = { w: 600, h: 470, m: { top: 34, left: 112 }, rowH: 86, mode: "share" };
 
 const drawHeat = () => {
   const h = heat;

@@ -1,5 +1,5 @@
 // T1: hospitalisations per year with a brush that sets the year range for the whole dashboard.
-const timeline = { w: 1100, h: 250, m: { top: 20, right: 24, bottom: 30, left: 60 } };
+const timeline = { w: 1300, h: 430, m: { top: 20, right: 24, bottom: 30, left: 60 } };
 
 const drawTimeline = () => {
   const t = timeline;

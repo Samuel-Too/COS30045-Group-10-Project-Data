@@ -1,5 +1,5 @@
 // R1: road user ranking with a sparkline per row. Clicking a row sets the road user filter.
-const users = { w: 560, h: 270, rowH: 54, barX: 112, barW: 190, sparkX: 440, sparkW: 112 };
+const users = { w: 760, h: 560, rowH: 110, barH: 40, barX: 120, barW: 330, sparkX: 600, sparkW: 150 };
 
 const drawUsers = () => {
   const u = users;
@@ -11,9 +11,10 @@ const drawUsers = () => {
     .attr("class", "ru-row")
     .attr("transform", (d, i) => `translate(0,${i * u.rowH})`)
     .call(onActivate, d => setFilters({ roadUser: toggleFilter("roadUser", d) }));
-  rows.append("text").attr("class", "cat-label").attr("y", 29).text(d => d);
-  rows.append("rect").attr("class", "bar").attr("x", u.barX).attr("y", 12).attr("height", 28).attr("rx", 8);
-  rows.append("text").attr("class", "value-label").attr("y", 30);
+  const mid = u.rowH / 2;
+  rows.append("text").attr("class", "cat-label").attr("y", mid).attr("dy", "0.35em").text(d => d);
+  rows.append("rect").attr("class", "bar").attr("x", u.barX).attr("y", mid - u.barH / 2).attr("height", u.barH).attr("rx", 10);
+  rows.append("text").attr("class", "value-label").attr("y", mid).attr("dy", "0.35em");
   rows.append("path").attr("class", "spark");
 };
 
@@ -32,7 +33,7 @@ const updateUsers = () => {
     const value = now.get(d) || 0;
     const picked = filters.roadUser;
     const series = years.map(year => ({ year, v: d3.sum(history.get(d)?.get(year) || [], r => r.cases) }));
-    const sy = d3.scaleLinear().domain([0, d3.max(series, s => s.v) || 1]).range([40, 12]);
+    const sy = d3.scaleLinear().domain([0, d3.max(series, s => s.v) || 1]).range([u.rowH / 2 + 30, u.rowH / 2 - 30]);
     const width = Math.max(2, u.x(value));
 
     row.attr("opacity", picked && picked !== d ? 0.45 : 1)

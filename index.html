@@ -9,6 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/dashboard.css">
   <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/layout.css">
 </head>
 <body>
   <header class="topbar">
@@ -18,42 +19,57 @@
       </div>
       <div>
         <div class="site-title-name">Hospitalised Injuries from Road Crashes in Australia<span class="chip">BITRE</span></div>
-        <div class="site-title-sub">2026 Data Visualisation Project</div>
+        <div class="site-title-sub">2011–2021 · counts, not risk · COS30045 Group 10</div>
       </div>
     </div>
-    <nav class="segmented" aria-label="Dashboard sections">
-      <a href="#overview" class="active">Overview</a>
-      <a href="#who">Who</a>
-      <a href="#where">Where</a>
-      <a href="#affected">Affected differently</a>
-      <a href="#sources">Data</a>
+    <nav class="segmented" id="view-nav" role="tablist" aria-label="Dashboard views">
+      <button type="button" role="tab" data-view="overview" aria-controls="view-overview">Overview</button>
+      <button type="button" role="tab" data-view="who" aria-controls="view-who">Who</button>
+      <button type="button" role="tab" data-view="where" aria-controls="view-where">Where</button>
+      <button type="button" role="tab" data-view="affected" aria-controls="view-affected">Affected differently</button>
+      <button type="button" role="tab" data-view="sources" aria-controls="view-sources">About the data</button>
     </nav>
   </header>
 
-  <main class="shell">
-    <section class="hero">
-      <div>
-        <h1>Hospitalised Road Crash Injuries</h1>
-        <p class="hero-sub"><span class="dot-indigo"></span>Australia, 2011–2021 · BITRE hospitalised injury data · counts, not risk</p>
-      </div>
-    </section>
+  <section class="filterbar" aria-label="Active filters">
+    <span class="filterbar-label">Filters</span>
+    <span class="pill pill-sm" id="range-pill">2011–2021</span>
+    <span id="chips" class="chips"></span>
+    <span class="filterbar-hint">Drag the timeline or click any bar, cell or tile to filter every view.</span>
+    <button type="button" class="pill pill-sm" id="reset">Reset all</button>
+  </section>
 
-    <section class="filterbar" aria-label="Active filters">
-      <span class="pill pill-sm" id="range-pill">2011–2021</span>
-      <span id="chips" class="chips"></span>
-      <button type="button" class="pill pill-sm" id="reset">Reset all</button>
-    </section>
-
-    <section id="overview">
-      <h2 class="zone">1 · How many people, and when? <span class="scope" id="scope-kpi"></span></h2>
-      <div class="grid">
-        <article class="card kpi-card span-3"><p class="card-sub">Hospitalisations</p><span class="kpi" id="kpi-total">–</span><span class="kpi-note" id="kpi-range"></span></article>
-        <article class="card kpi-card span-3"><p class="card-sub">Change over the range</p><span class="kpi" id="kpi-change">–</span><span class="kpi-note" id="kpi-change-note"></span></article>
-        <article class="card kpi-card span-3"><p class="card-sub">Average stay (days)</p><span class="kpi" id="kpi-bpc">–</span><span class="kpi-note" id="kpi-bpc-note"></span></article>
-        <article class="card kpi-card span-3"><p class="card-sub">Male share</p><span class="kpi" id="kpi-male">–</span><span class="kpi-note">of cases with sex recorded</span></article>
-        <article class="card span-12">
+  <main class="app-main">
+    <!-- View 1: Overview -->
+    <section class="view" id="view-overview" role="tabpanel" aria-labelledby="h-overview">
+      <header class="view-head">
+        <h2 class="zone" id="h-overview">How many people, and when?</h2>
+        <span class="scope" id="scope-kpi"></span>
+      </header>
+      <div class="view-grid">
+        <article class="card card-sm tile-card kpi-primary a-total">
+          <p class="card-sub">Hospitalisations</p>
+          <span class="kpi" id="kpi-total">–</span>
+          <span class="kpi-note" id="kpi-range"></span>
+        </article>
+        <article class="card card-sm tile-card a-change">
+          <p class="card-sub">Change over the range</p>
+          <span class="kpi" id="kpi-change">–</span>
+          <span class="kpi-note" id="kpi-change-note"></span>
+        </article>
+        <article class="card card-sm tile-card a-stay">
+          <p class="card-sub">Average stay (days)</p>
+          <span class="kpi" id="kpi-bpc">–</span>
+          <span class="kpi-note" id="kpi-bpc-note"></span>
+        </article>
+        <article class="card card-sm tile-card a-male">
+          <p class="card-sub">Male share</p>
+          <span class="kpi" id="kpi-male">–</span>
+          <span class="kpi-note">of cases with sex recorded</span>
+        </article>
+        <article class="card card-lg a-time">
           <header class="card-head">
-            <div><h2>Hospitalisations per year</h2><p class="card-sub">Drag across the chart to choose the years for every panel. The dashed line is the unfiltered total.</p></div>
+            <div><h2>Hospitalisations per year</h2><p class="card-sub">Drag across the chart to choose the years for every view. The dashed line is the unfiltered total.</p></div>
             <span class="scope" id="scope-timeline"></span>
           </header>
           <div id="chart-timeline" class="chart"></div>
@@ -62,10 +78,13 @@
       </div>
     </section>
 
-    <section id="who">
-      <h2 class="zone">2 · Who is hurt?</h2>
-      <div class="grid">
-        <article class="card span-5">
+    <!-- View 2: Who -->
+    <section class="view" id="view-who" role="tabpanel" aria-labelledby="h-who" hidden>
+      <header class="view-head">
+        <h2 class="zone" id="h-who">Who is hurt?</h2>
+      </header>
+      <div class="view-grid">
+        <article class="card card-lg a-users">
           <header class="card-head">
             <div><h2>Road users</h2><p class="card-sub">Click a row to filter. Sparklines show 2011–2021.</p></div>
             <span class="scope" id="scope-users"></span>
@@ -73,7 +92,7 @@
           <div id="chart-users" class="chart"></div>
           <p class="note">“Other” = bus, heavy transport, pick-up/van and unknown.</p>
         </article>
-        <article class="card span-7">
+        <article class="card card-md a-heat">
           <header class="card-head">
             <div><h2>Age by road user</h2><p class="card-sub">Click a cell to filter by road user and age.</p></div>
             <div class="segmented segmented-sm" id="heat-toggle" role="group" aria-label="Heatmap values">
@@ -84,15 +103,28 @@
           <span class="scope" id="scope-heat"></span>
           <div id="chart-heat" class="chart"></div>
         </article>
+        <article class="card card-sm tile-card a-t1">
+          <p class="card-sub">Most hospitalised road user</p>
+          <span class="kpi" id="tile-top-user">–</span>
+          <span class="kpi-note" id="tile-top-user-note"></span>
+        </article>
+        <article class="card card-sm tile-card a-t2">
+          <p class="card-sub">Largest age group</p>
+          <span class="kpi" id="tile-top-age">–</span>
+          <span class="kpi-note" id="tile-top-age-note"></span>
+        </article>
       </div>
     </section>
 
-    <section id="where">
-      <h2 class="zone">3 · Where?</h2>
-      <div class="grid">
-        <article class="card span-5">
+    <!-- View 3: Where -->
+    <section class="view" id="view-where" role="tabpanel" aria-labelledby="h-where" hidden>
+      <header class="view-head">
+        <h2 class="zone" id="h-where">Where?</h2>
+      </header>
+      <div class="view-grid">
+        <article class="card card-lg a-map">
           <header class="card-head">
-            <div><h2>States and territories</h2><p class="card-sub">Click a tile to highlight a state.</p></div>
+            <div><h2>States and territories</h2><p class="card-sub">Hover a state for details. Click to select it.</p></div>
             <div class="segmented segmented-sm" id="map-toggle" role="group" aria-label="Tile colour">
               <button type="button" data-mode="share" class="active" aria-pressed="true">Share</button>
               <button type="button" data-mode="change" aria-pressed="false">Change</button>
@@ -102,7 +134,7 @@
           <div id="chart-map" class="chart"></div>
           <p class="note" id="map-note"></p>
         </article>
-        <article class="card span-7">
+        <article class="card card-md a-comp">
           <header class="card-head">
             <div><h2>What makes up each state's cases</h2><p class="card-sub">Mix by group, so states of different size can be compared.</p></div>
             <div class="segmented segmented-sm" id="comp-tabs" role="group" aria-label="Mix by">
@@ -117,13 +149,26 @@
           <div id="chart-comp" class="chart"></div>
           <p class="note" id="comp-note"></p>
         </article>
+        <article class="card card-sm tile-card a-t1">
+          <p class="card-sub">Largest share of cases</p>
+          <span class="kpi" id="tile-top-state">–</span>
+          <span class="kpi-note" id="tile-top-state-note"></span>
+        </article>
+        <article class="card card-sm tile-card a-t2">
+          <p class="card-sub">Fastest growth</p>
+          <span class="kpi" id="tile-growth-state">–</span>
+          <span class="kpi-note" id="tile-growth-state-note"></span>
+        </article>
       </div>
     </section>
 
-    <section id="affected">
-      <h2 class="zone">4 · Which groups are affected differently?</h2>
-      <div class="grid">
-        <article class="card span-7">
+    <!-- View 4: Affected differently -->
+    <section class="view" id="view-affected" role="tabpanel" aria-labelledby="h-affected" hidden>
+      <header class="view-head">
+        <h2 class="zone" id="h-affected">Which groups are affected differently?</h2>
+      </header>
+      <div class="view-grid">
+        <article class="card card-lg a-fn">
           <header class="card-head">
             <div><h2>First Nations and Non-Indigenous cases</h2><p class="card-sub">Growth since 2011 (2011 = 100). Shaded years are your selection.</p></div>
             <span class="scope" id="scope-fn"></span>
@@ -132,7 +177,7 @@
           <p class="note" id="fn-note"></p>
           <p class="note">These are counts, not rates. Cases with unknown Indigenous status are left out, and the share has fallen since 2011 (2.6% to 1.3%).</p>
         </article>
-        <article class="card span-5">
+        <article class="card card-md a-remote">
           <header class="card-head">
             <div><h2>Where cases live</h2><p class="card-sub">Remoteness of usual residence. Click a segment to filter.</p></div>
             <span class="scope" id="scope-remote"></span>
@@ -140,23 +185,46 @@
           <ul class="legend" id="remote-legend"></ul>
           <div id="chart-remote" class="chart"></div>
         </article>
+        <article class="card card-sm tile-card a-t1">
+          <p class="card-sub">First Nations cases</p>
+          <span class="kpi" id="tile-fn-cases">–</span>
+          <span class="kpi-note" id="tile-fn-cases-note"></span>
+        </article>
+        <article class="card card-sm tile-card a-t2">
+          <p class="card-sub">Share of known status</p>
+          <span class="kpi" id="tile-fn-share">–</span>
+          <span class="kpi-note" id="tile-fn-share-note"></span>
+        </article>
+      </div>
+    </section>
+
+    <!-- View 5: About the data -->
+    <section class="view" id="view-sources" role="tabpanel" aria-labelledby="h-sources" hidden>
+      <header class="view-head">
+        <h2 class="zone" id="h-sources">About the data</h2>
+      </header>
+      <div class="view-grid">
+        <article class="card card-lg a-src">
+          <header class="card-head"><h2>Source</h2></header>
+          <p>Bureau of Infrastructure and Transport Research Economics (BITRE), <a href="https://www.bitre.gov.au/publications/ongoing/hospitalised-injury" target="_blank" rel="noopener noreferrer">Hospitalised injury data</a>, September 2023.</p>
+          <p>Cases where the person died in hospital within 30 days are excluded. Each figure is a count of hospitalised injuries, not a rate: the data has no measure of how much people drive, ride or walk.</p>
+          <p class="note">COS30045 Data Visualisation · Group 10 (Elijah and Samuel)</p>
+        </article>
+        <article class="card card-md a-notes">
+          <header class="card-head"><h2>Reading the charts</h2></header>
+          <ul class="notes-list">
+            <li><b>Series breaks.</b> Victoria (2012) and NSW (2017) changed how emergency-only cases are counted, so those years are not strictly comparable.</li>
+            <li><b>Average stay.</b> Bed days per case. Coding changed in 2015.</li>
+            <li><b>Not published (n.p.).</b> Small state cells are suppressed, so shares use published cells only.</li>
+            <li><b>Map.</b> State and territory boundaries: ABS Australian Statistical Geography Standard (ASGS) 2021, simplified, CC BY 4.0.</li>
+            <li><b>Filters.</b> State and First Nations files hold one dimension at a time, so they use the latest filter their file supports. Each card's badge says what it is showing.</li>
+          </ul>
+        </article>
       </div>
     </section>
 
     <p id="error" class="error" role="alert" hidden></p>
-
-    <section class="verify" id="sources">
-      <span>
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 6v6c0 5 3.5 8 8 9 4.5-1 8-4 8-9V6z" /><path d="m9 12 2 2 4-4" /></svg>
-        Source: Bureau of Infrastructure and Transport Research Economics (BITRE), Hospitalised injury data, September 2023. Cases where the person died in hospital within 30 days are excluded.
-      </span>
-      <a href="https://www.bitre.gov.au/publications/ongoing/hospitalised-injury" target="_blank" rel="noopener noreferrer">Dataset</a>
-    </section>
   </main>
-
-  <footer class="site-footer">
-    <span>COS30045 · Group 10 (Elijah and Samuel)</span>
-  </footer>
 
   <div id="tooltip" role="status" hidden></div>
 
@@ -165,8 +233,10 @@
   <script src="js/state.js"></script>
   <script src="js/data-helpers.js"></script>
   <script src="js/interactions.js"></script>
+  <script src="js/views.js"></script>
   <script src="js/stacked-bars.js"></script>
   <script src="js/kpis.js"></script>
+  <script src="js/tiles.js"></script>
   <script src="js/timeline.js"></script>
   <script src="js/road-users.js"></script>
   <script src="js/heatmap.js"></script>

@@ -34,9 +34,20 @@
 .brush .selection { fill: var(--indigo); fill-opacity: 0.12; stroke: var(--indigo); }
 .axis line { stroke: var(--line); stroke-dasharray: 3 4; }
 .dot { cursor: pointer; stroke: #fff; stroke-width: 2; }
-.ru-row, .cell, .tile, .stack-seg { cursor: pointer; }
-.tile-name { font: 700 15px var(--body); }
-.tile-value { font: 600 12px var(--body); }
+.ru-row, .cell, .state-shape, .stack-seg { cursor: pointer; }
+.state-shape { stroke: #fff; stroke-width: 1.5; stroke-linejoin: round; transition: opacity 0.2s; }
+.state-outline { fill: none; stroke: var(--ink); stroke-width: 2.5; stroke-linejoin: round; pointer-events: none; }
+.state-outline.is-hover { stroke-width: 3; }
+.state-shape:focus { outline: none; }
+.map-labels, .map-callout { pointer-events: none; }
+.label-hit { fill: transparent; pointer-events: all; cursor: pointer; }
+.map-name { font: 700 19px var(--body); }
+.map-value { font: 600 15px var(--body); }
+.map-leader { stroke: var(--ink-3); stroke-width: 1.2; }
+.callout-box { fill: #fff; stroke: var(--line); filter: drop-shadow(0 8px 18px rgba(17, 24, 39, 0.14)); }
+.callout-title { font: 700 16px var(--display); fill: var(--ink); }
+.callout-line { font: 600 14px var(--body); fill: var(--ink-2); }
+.callout-dot { fill: var(--ink); stroke: #fff; stroke-width: 2; }
 .stack-pct { font: 700 12px var(--body); fill: #fff; pointer-events: none; }
 .state-label { font-size: 13px; }
 [tabindex]:focus-visible { outline: 3px solid #f2b705; outline-offset: 2px; }

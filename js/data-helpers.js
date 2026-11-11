@@ -1,5 +1,5 @@
-// Filtering and totals over the three cubes.
-const data = { national: [], states: [], fn: [] };
+// Filtering and totals over the three cubes. `geo` holds the state boundaries for the map.
+const data = { national: [], states: [], fn: [], geo: null };
 
 const inYears = d => d.year >= filters.years[0] && d.year <= filters.years[1];
 
