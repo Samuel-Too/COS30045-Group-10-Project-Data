@@ -33,7 +33,8 @@
 .series-label { font: 700 13px var(--body); }
 .brush .selection { fill: var(--indigo); fill-opacity: 0.12; stroke: var(--indigo); }
 .axis line { stroke: var(--line); stroke-dasharray: 3 4; }
-.dot { cursor: pointer; stroke: #fff; stroke-width: 2; }
+.dot { stroke: #fff; stroke-width: 2; pointer-events: none; transform-box: fill-box; transform-origin: center; transition: transform 0.15s; }
+.dot.is-hover { transform: scale(1.5); }
 .ru-row, .cell, .state-shape, .stack-seg { cursor: pointer; }
 .state-shape { stroke: #fff; stroke-width: 1.5; stroke-linejoin: round; transition: opacity 0.2s; }
 .state-outline { fill: none; stroke: var(--ink); stroke-width: 2.5; stroke-linejoin: round; pointer-events: none; }
@@ -58,3 +59,31 @@
   .filterbar { position: static; border-radius: 20px; }
   .grid > .card { grid-column: 1 / -1; }
 }
+
+/* ---------- Shared chart states (a CSS rule beats a presentation attribute, so these use classes) ---------- */
+.axis-label { font: 500 12px var(--body); fill: var(--ink-2); }
+.layer { pointer-events: none; }
+.hover-guide { stroke: var(--ink-3); stroke-dasharray: 3 3; pointer-events: none; transition: opacity 0.15s; }
+.sev-dot.is-picked, .gap-fn.is-picked { stroke: var(--ink); stroke-width: 3; }
+.gap-text.is-strong { font-weight: 700; fill: var(--ink); }
+.wf-bar.is-net { cursor: default; }
+.brush:focus-visible { outline: 3px solid #f2b705; outline-offset: -3px; }
+
+/* ---------- Motion: it answers an action, and all of it switches off under prefers-reduced-motion ---------- */
+@keyframes view-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes pop-in { from { opacity: 0; transform: scale(0.85); } to { opacity: 1; transform: none; } }
+@keyframes tip-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+@keyframes swap-in { from { opacity: 0.2; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.view { animation: view-in 0.3s ease both; }
+.chip-filter { animation: pop-in 0.2s ease both; }
+#tooltip { animation: tip-in 0.15s ease both; }
+.swap { animation: swap-in 0.3s ease both; }
+.segmented button, .pill, .chip-filter button { transition: background 0.2s, color 0.2s, transform 0.12s; }
+.segmented button:active, button.pill:active { transform: scale(0.96); }
+.tile-card { transition: box-shadow 0.2s, transform 0.2s; }
+.tile-card:hover { transform: translateY(-2px); }
+.cell rect, .stack-seg, .bar, .wf-bar, .state-shape { transition: filter 0.15s, opacity 0.25s; }
+.cell:hover rect, .stack-seg:hover, .bar:hover, .wf-bar:hover { filter: brightness(1.12); }
+.sev-dot { transform-box: fill-box; transform-origin: center; transition: transform 0.15s, opacity 0.25s; }
+.sev-dot:hover { transform: scale(1.25); }
+.ru-row, .stack-row, .gap-item { transition: opacity 0.25s; }

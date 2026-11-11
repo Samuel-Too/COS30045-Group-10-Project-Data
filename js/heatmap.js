@@ -1,5 +1,5 @@
 // H1: road user by age band. Cells show each road user's age profile; clicking a cell sets both filters.
-const heat = { w: 600, h: 470, m: { top: 34, left: 112 }, rowH: 86, mode: "share" };
+const heat = { w: 600, h: 300, m: { top: 34, left: 112 }, rowH: 52, mode: "share" };
 
 const drawHeat = () => {
   const h = heat;
@@ -41,8 +41,9 @@ const updateHeat = () => {
     .attr("transform", d => `translate(${d.c * h.cellW},${d.r * h.rowH})`)
     .attr("aria-label", d => `${d.ru}, ages ${d.age}: ${formatCount(d.v)} cases, ${formatShare(d.share)} of this road user. Click to filter.`);
 
-  cell.select("rect").attr("width", h.cellW - 3).attr("height", h.rowH - 3).attr("fill", d => color(d[key]))
+  cell.select("rect").attr("width", h.cellW - 3).attr("height", h.rowH - 3)
     .attr("stroke", d => filters.roadUser === d.ru && filters.age === d.age ? ink : "none").attr("stroke-width", 3);
+  cell.select("rect").transition().duration(MOTION).attr("fill", d => color(d[key]));
   cell.select("text").attr("x", (h.cellW - 3) / 2).attr("y", (h.rowH - 3) / 2)
     .attr("fill", d => d3.lab(color(d[key])).l < 60 ? "#fff" : ink)
     .text(d => h.mode === "share" ? formatShare(d.share) : formatCount(d.v));

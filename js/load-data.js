@@ -5,6 +5,7 @@
  */
 const blankToNaN = v => v === "" ? NaN : +v;
  
+let dataReady = false;   // tells a loading problem apart from a drawing problem
 Promise.all([d3.csv("data/master_cube.csv", d => ({
   dataset: d.dataset,
   year: +d.year,
@@ -20,6 +21,7 @@ Promise.all([d3.csv("data/master_cube.csv", d => ({
   bedDays: blankToNaN(d.bed_days)
 })), d3.json("data/australia-states.geojson")]).then(([rows, geo]) => {
   const part = name => rows.filter(d => d.dataset === name);
+  dataReady = true;
   Object.assign(data, { national: part("national"), states: part("state"), fn: part("first_nations"), geo });
  
   drawTimeline();
@@ -28,14 +30,16 @@ Promise.all([d3.csv("data/master_cube.csv", d => ({
   drawStateMap();
   drawComp();
   drawFn();
-  drawRemote();
+  drawWaterfall();
+  drawSeverity();
+  drawGap();
  
-  updaters.push(updateKpis, updateTiles, updateTimeline, updateUsers, updateHeat, updateStateMap, updateComp, updateFn, updateRemote);
+  updaters.push(updateKpis, updateTiles, updateTimeline, updateUsers, updateHeat, updateStateMap, updateComp, updateFn, updateWaterfall, updateSeverity, updateGap);
   d3.select("#reset").on("click", resetFilters);
   updateAll();
 }).catch(error => {
   console.error("Error loading the data:", error);
   d3.select("#error")
     .attr("hidden", null)
-    .text("The data could not be loaded. Serve this folder from a web server (not file://) and check data/master_cube.csv and data/australia-states.geojson.");
+    .text(dataReady ? "A chart could not be drawn. Open the browser console for details." : "The data could not be loaded. Serve this folder from a web server (not file://) and check data/master_cube.csv and data/australia-states.geojson.");
 }); 

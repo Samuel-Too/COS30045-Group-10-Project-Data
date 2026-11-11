@@ -63,16 +63,28 @@ body {
 .tile-card.kpi-primary .kpi { font-size: clamp(2rem, 3.2vw, 3rem); }
 
 /* ---------- View layouts ---------- */
+#view-overview .view-grid, #view-who .view-grid {
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
 #view-overview .view-grid {
-  grid-template-columns: 1.7fr 1fr 1fr 1fr;
   grid-template-rows: auto minmax(0, 1fr);
-  grid-template-areas: "total change stay male" "time time time time";
+  grid-template-areas:
+    "total total total change change change stay stay stay male male male"
+    "time time time time time time time wf wf wf wf wf";
 }
+
 #view-who .view-grid {
-  grid-template-columns: 7fr 2.5fr 2.5fr;
-  grid-template-rows: minmax(0, 1fr) auto;
-  grid-template-areas: "users heat heat" "users t1 t2";
+  grid-template-rows: minmax(0, 2fr) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 2fr);
+  grid-template-areas:
+    "users users users users users users users heat heat heat heat heat"
+    "users users users users users users users heat heat heat heat heat"
+    "users users users users users users users heat heat heat heat heat"
+    "users users users users users users users sev  sev  sev  sev  sev "
+    "users users users users users users users sev  sev  sev  sev  sev "
+    "t1    t1    t1    t1    t2    t2    t2    sev  sev  sev  sev  sev ";
 }
+
 #view-where .view-grid {
   grid-template-columns: 5fr 3.5fr 3.5fr;
   grid-template-rows: minmax(0, 1fr) auto;
@@ -81,10 +93,10 @@ body {
 #view-affected .view-grid {
   grid-template-columns: 7.5fr 2.25fr 2.25fr;
   grid-template-rows: minmax(0, 1fr) auto;
-  grid-template-areas: "fn remote remote" "fn t1 t2";
+  grid-template-areas: "fn gap gap" "fn t1 t2";
 }
 #view-sources .view-grid {
-  grid-template-columns: 7fr 5fr;
+  grid-template-columns: 5fr 6fr;
   grid-template-rows: auto;
   grid-template-areas: "src notes";
   align-content: start;
@@ -92,7 +104,7 @@ body {
 
 .a-total { grid-area: total; } .a-change { grid-area: change; } .a-stay { grid-area: stay; } .a-male { grid-area: male; }
 .a-time { grid-area: time; } .a-users { grid-area: users; } .a-heat { grid-area: heat; }
-.a-map { grid-area: map; } .a-comp { grid-area: comp; } .a-fn { grid-area: fn; } .a-remote { grid-area: remote; }
+.a-map { grid-area: map; } .a-comp { grid-area: comp; } .a-fn { grid-area: fn; } .a-gap { grid-area: gap; }
 .a-t1 { grid-area: t1; } .a-t2 { grid-area: t2; } .a-src { grid-area: src; } .a-notes { grid-area: notes; }
 
 .a-src p { margin: 0 0 0.75rem; max-width: 60ch; }
@@ -117,7 +129,7 @@ body {
 
 /* Phones, tablets and very short windows can't hold a view without scrolling,
    so fall back to a stacked, scrolling layout there. */
-@media (max-width: 1023px), (max-height: 599px) {
+@media (max-width: 1100px), (max-height: 599px) {
   body { height: auto; overflow: auto; display: block; }
   .topbar { flex-wrap: wrap; position: sticky; top: 0; }
   .topbar .segmented { width: 100%; overflow-x: auto; }
@@ -128,3 +140,22 @@ body {
   .view-grid .chart svg { position: static; height: auto; }
   .view-grid .card-head .card-sub { display: block; }
 }
+
+/* Assign grid areas for the newly added charts */
+.a-wf { grid-area: wf; }
+.a-sev { grid-area: sev; }
+
+
+.change-label { font: 600 13px var(--body); fill: var(--ink-2); }
+.wf-bar, .sev-dot { cursor: pointer; }
+.wf-label { font: 500 12px var(--body); fill: var(--ink-2); }
+.wf-val { font: 700 13px var(--body); fill: var(--ink); text-anchor: middle; }
+.wf-link { stroke: var(--ink-3); stroke-dasharray: 3 3; }
+.sev-dot { stroke: #fff; stroke-width: 2; }
+.sev-legend { font: 500 12px var(--body); fill: var(--ink-2); }
+.gap-text { font: 500 13px var(--body); fill: var(--ink-2); }
+.gap-delta { font: 700 12px var(--body); }
+.gap-link { stroke: #d1d5db; stroke-width: 3; }
+.gap-ni { fill: #6b7280; stroke: #fff; stroke-width: 2; }
+.gap-fn { fill: var(--coral); stroke: #fff; stroke-width: 2; }
+.gap-item[tabindex] { cursor: pointer; }

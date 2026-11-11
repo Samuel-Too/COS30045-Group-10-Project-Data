@@ -9,6 +9,7 @@ const categoryOrder = { road_user: roadUsers, age: ageBands, sex: ["Male", "Fema
 const filterLabels = { roadUser: "Road user", age: "Age", sex: "Sex", remoteness: "Area", state: "State" };
 
 const ink = "#111827", indigo = "#4648d4", coral = "#ea580c", grey = "#6b7280";
+const DIM = 0.45;   // opacity of marks that are not selected, the same in every chart
 const palette = ["#4648d4", "#ea580c", "#0d9488", "#111827", "#a16207", "#7c3aed"];
 
 const formatCount = d3.format(",");

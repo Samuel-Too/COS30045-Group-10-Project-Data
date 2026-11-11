@@ -15,6 +15,7 @@ const drawUsers = () => {
   rows.append("text").attr("class", "cat-label").attr("y", mid).attr("dy", "0.35em").text(d => d);
   rows.append("rect").attr("class", "bar").attr("x", u.barX).attr("y", mid - u.barH / 2).attr("height", u.barH).attr("rx", 10);
   rows.append("text").attr("class", "value-label").attr("y", mid).attr("dy", "0.35em");
+  rows.append("text").attr("class", "change-label").attr("x", u.barX).attr("y", mid + u.barH / 2 + 22);
   rows.append("path").attr("class", "spark");
 };
 
@@ -36,12 +37,15 @@ const updateUsers = () => {
     const sy = d3.scaleLinear().domain([0, d3.max(series, s => s.v) || 1]).range([u.rowH / 2 + 30, u.rowH / 2 - 30]);
     const width = Math.max(2, u.x(value));
 
-    row.attr("opacity", picked && picked !== d ? 0.45 : 1)
+    row.attr("opacity", picked && picked !== d ? DIM : 1)
       .attr("aria-label", `${d}: ${formatCount(value)} cases, ${formatShare(total ? value / total : 0)}. Click to filter.`);
     row.select(".bar").transition().duration(MOTION).attr("width", width).attr("fill", picked === d ? indigo : ink);
     row.select(".value-label").attr("x", u.barX + width + 8).text(`${formatCount(value)} · ${formatShare(total ? value / total : 0)}`);
+    const [a, b] = filters.years;
+    const first = series.find(s => s.year === a)?.v, last = series.find(s => s.year === b)?.v;
+    row.select(".change-label").text(a !== b && first ? `${formatPct(last / first - 1)} from ${a} to ${b}` : "");
     row.select(".spark").attr("stroke", picked === d ? indigo : grey)
-      .attr("d", d3.line().x(s => sx(s.year)).y(s => sy(s.v))(series));
+      .each(function () { morphPath(d3.select(this), d3.line().x(s => sx(s.year)).y(s => sy(s.v))(series)); });
   });
   rows.call(bindTooltip, d => `<b>${d}</b><br>${formatCount(now.get(d) || 0)} cases in view<br>Sparkline: 2011–2021 trend`);
   setText("#scope-users", scopeText(["age", "sex", "remoteness"]));

@@ -10,12 +10,12 @@ const updateKpis = () => {
   const first = byYear.get(a);
   const last = byYear.get(b);
 
-  setText("#kpi-total", formatCount(cases));
+  animateNumber("#kpi-total", cases, n => formatCount(Math.round(n)));
   setText("#kpi-range", a === b ? `in ${a}` : `${a}–${b}, all years combined`);
-  setText("#kpi-change", a === b || !first ? "–" : formatPct(last / first - 1));
+  animateNumber("#kpi-change", a === b || !first ? NaN : last / first - 1, formatPct);
   setText("#kpi-change-note", a === b ? "Choose two or more years" : `${a} to ${b}`);
-  setText("#kpi-bpc", cases ? d3.format(".1f")(bedDays / cases) : "–");
+  animateNumber("#kpi-bpc", cases ? bedDays / cases : NaN, d3.format(".1f"));
   setText("#kpi-bpc-note", a < 2016 ? "Bed days per case (coding changed in 2015)" : "Bed days per case");
-  setText("#kpi-male", male + female ? formatShare(male / (male + female)) : "–");
+  animateNumber("#kpi-male", male + female ? male / (male + female) : NaN, formatShare);
   setText("#scope-kpi", scopeText(["roadUser", "age", "sex", "remoteness"]));
 };

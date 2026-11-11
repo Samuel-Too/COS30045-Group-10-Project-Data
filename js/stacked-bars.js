@@ -18,13 +18,11 @@ const renderStack = (inner, items, cats, o) => {
       row.append("text").attr("class", "state-label").attr("y", (o.rowH - 10) / 2).attr("dy", "0.35em").text(d => d.label);
       return row;
     })
-    .attr("opacity", d => o.dim && o.dim(d) ? 0.45 : 1);
+    .attr("opacity", d => o.dim && o.dim(d) ? DIM : 1);
 
   rowGroups.selectAll(".stack-seg").data(d => d.segs, d => d.cat)
-    .join("rect")
+    .join(enter => enter.append("rect").attr("x", d => o.labelW + d.x0 * o.barW).attr("width", 0))
       .attr("class", "stack-seg")
-      .attr("x", d => o.labelW + d.x0 * o.barW)
-      .attr("width", d => Math.max(0, d.share * o.barW - 1))
       .attr("height", o.rowH - 10)
       .attr("rx", 4)
       .attr("fill", d => palette[d.i % palette.length])
@@ -32,7 +30,9 @@ const renderStack = (inner, items, cats, o) => {
       .attr("stroke-width", 3)
       .attr("aria-label", d => `${d.label}, ${d.cat}: ${formatShare(d.share)}`)
       .call(onActivate, o.onClick)
-      .call(bindTooltip, d => `<b>${d.label}</b> · ${d.cat}<br>${formatShare(d.share)} (${formatCount(d.v)} cases)`);
+      .call(bindTooltip, d => `<b>${d.label}</b> · ${d.cat}<br>${formatShare(d.share)} (${formatCount(d.v)} cases)`)
+    .transition().duration(MOTION)
+      .attr("x", d => o.labelW + d.x0 * o.barW).attr("width", d => Math.max(0, d.share * o.barW - 1));
 
   rowGroups.selectAll(".stack-pct").data(d => d.segs.filter(s => s.share > 0.08), d => d.cat)
     .join("text")

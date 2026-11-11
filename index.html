@@ -19,7 +19,7 @@
       </div>
       <div>
         <div class="site-title-name">Hospitalised Injuries from Road Crashes in Australia<span class="chip">BITRE</span></div>
-        <div class="site-title-sub">2011–2021 · counts, not risk · COS30045 Group 10</div>
+        <div class="site-title-sub">2011–2021 · COS30045 Group 10</div>
       </div>
     </div>
     <nav class="segmented" id="view-nav" role="tablist" aria-label="Dashboard views">
@@ -35,7 +35,7 @@
     <span class="filterbar-label">Filters</span>
     <span class="pill pill-sm" id="range-pill">2011–2021</span>
     <span id="chips" class="chips"></span>
-    <span class="filterbar-hint">Drag the timeline or click any bar, cell or tile to filter every view.</span>
+    <span class="filterbar-hint">Drag either timeline or click any bar, cell or tile to filter every view.</span>
     <button type="button" class="pill pill-sm" id="reset">Reset all</button>
   </section>
 
@@ -75,6 +75,14 @@
           <div id="chart-timeline" class="chart"></div>
           <p class="note">Grey bands mark breaks in the series: Victoria (2012) and NSW (2017) changed how emergency-only cases are counted.</p>
         </article>
+        <article class="card card-md a-wf">
+          <header class="card-head">
+            <div><h2>What drove the change</h2><p class="card-sub" id="waterfall-sub"></p></div>
+            <span class="scope" id="scope-waterfall"></span>
+          </header>
+          <div id="chart-waterfall" class="chart"></div>
+          <p class="note">Each bar is one road user's change in cases between the first and last year chosen. Click a bar to filter.</p>
+        </article>
       </div>
     </section>
 
@@ -102,6 +110,14 @@
           </header>
           <span class="scope" id="scope-heat"></span>
           <div id="chart-heat" class="chart"></div>
+        </article>
+        <article class="card card-md a-sev">
+          <header class="card-head">
+            <div><h2>Volume against length of stay</h2><p class="card-sub">Each dot is a road user and age band. Click a dot to filter.</p></div>
+            <span class="scope" id="scope-severity"></span>
+          </header>
+          <div id="chart-severity" class="chart"></div>
+          <p class="note" id="severity-note"></p>
         </article>
         <article class="card card-sm tile-card a-t1">
           <p class="card-sub">Most hospitalised road user</p>
@@ -170,20 +186,20 @@
       <div class="view-grid">
         <article class="card card-lg a-fn">
           <header class="card-head">
-            <div><h2>First Nations and Non-Indigenous cases</h2><p class="card-sub">Growth since 2011 (2011 = 100). Shaded years are your selection.</p></div>
+            <div><h2>First Nations and Non-Indigenous cases</h2><p class="card-sub">Growth since 2011 (2011 = 100). Drag across the chart to choose the years for every view.</p></div>
             <span class="scope" id="scope-fn"></span>
           </header>
           <div id="chart-fn" class="chart"></div>
           <p class="note" id="fn-note"></p>
           <p class="note">These are counts, not rates. Cases with unknown Indigenous status are left out, and the share has fallen since 2011 (2.6% to 1.3%).</p>
         </article>
-        <article class="card card-md a-remote">
+        <article class="card card-md a-gap">
           <header class="card-head">
-            <div><h2>Where cases live</h2><p class="card-sub">Remoteness of usual residence. Click a segment to filter.</p></div>
-            <span class="scope" id="scope-remote"></span>
+            <div><h2>How the two groups differ</h2><p class="card-sub">Share of each group's own cases. The label is the gap in percentage points.</p></div>
+            <span class="scope" id="scope-gap"></span>
           </header>
-          <ul class="legend" id="remote-legend"></ul>
-          <div id="chart-remote" class="chart"></div>
+          <div id="chart-gap" class="chart"></div>
+          <p class="note" id="gap-note"></p>
         </article>
         <article class="card card-sm tile-card a-t1">
           <p class="card-sub">First Nations cases</p>
@@ -217,7 +233,7 @@
             <li><b>Average stay.</b> Bed days per case. Coding changed in 2015.</li>
             <li><b>Not published (n.p.).</b> Small state cells are suppressed, so shares use published cells only.</li>
             <li><b>Map.</b> State and territory boundaries: ABS Australian Statistical Geography Standard (ASGS) 2021, simplified, CC BY 4.0.</li>
-            <li><b>Filters.</b> State and First Nations files hold one dimension at a time, so they use the latest filter their file supports. Each card's badge says what it is showing.</li>
+            <li><b>Filters.</b> State and First Nations files hold one dimension at a time, so they use the latest filter their file supports. Each card's badge says what it is showing. The State filter only highlights a state: national figures are not split by state.</li>
           </ul>
         </article>
       </div>
@@ -233,6 +249,8 @@
   <script src="js/state.js"></script>
   <script src="js/data-helpers.js"></script>
   <script src="js/interactions.js"></script>
+  <script src="js/motion.js"></script>
+  <script src="js/year-brush.js"></script>
   <script src="js/views.js"></script>
   <script src="js/stacked-bars.js"></script>
   <script src="js/kpis.js"></script>
@@ -243,7 +261,9 @@
   <script src="js/state-map.js"></script>
   <script src="js/state-composition.js"></script>
   <script src="js/first-nations.js"></script>
-  <script src="js/remoteness.js"></script>
+  <script src="js/waterfall.js"></script>
+  <script src="js/severity.js"></script>
+  <script src="js/profile-gap.js"></script>
   <script src="js/load-data.js"></script>
 </body>
 </html>

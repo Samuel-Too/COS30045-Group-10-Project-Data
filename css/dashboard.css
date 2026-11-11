@@ -305,5 +305,5 @@ a.pill:hover, .select-pill:hover { background: #e7e8ea; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
 }
